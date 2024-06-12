@@ -20,6 +20,9 @@ public class TestThreadCheckArray {
 			
 			thread1 = new Thread(new ThreadCheckArray(sd), "thread1");
 			thread2 = new Thread(new ThreadCheckArray(sd), "thread2");
+
+			long startTime = System.currentTimeMillis(); // Record start time
+
 			thread1.start();
 			thread2.start();
 			try 
@@ -31,6 +34,7 @@ public class TestThreadCheckArray {
 			{
 				e.printStackTrace();
 			}
+			long endTime = System.currentTimeMillis(); // Record end time
 			if (!sd.getFlag())
 			{
 				System.out.println("Sorry");
@@ -66,6 +70,8 @@ public class TestThreadCheckArray {
 				else
 					System.out.print("0    ");	
 			}
+			System.out.println("\nTotal running time: " + (endTime - startTime) + " milliseconds");
+
 		}
 	}
 
